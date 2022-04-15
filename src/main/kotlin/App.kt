@@ -18,5 +18,3 @@ fun File.collectEpubRecursively(file: AndroidFile) {
     file.listNestedFiles().forEach(::collectEpubRecursively)
   }
 }
-
-

@@ -1,5 +1,8 @@
 # Lithium Epub Exporter
 
+Utility for extracting books
+from [Lithium: EPUB Reader](https://play.google.com/store/apps/details?id=com.faultexception.reader).
+
 ## Download
 
 * [Windows version]()
