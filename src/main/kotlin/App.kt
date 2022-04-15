@@ -1,12 +1,12 @@
 import AndroidFile.Companion.loadAndroidSdcard
-import me.tongfei.progressbar.ProgressBar.wrap
+import me.tongfei.progressbar.ProgressBar
 import java.io.File
 
 
 fun main() {
   val dirs = loadAndroidSdcard().listNestedFiles()
   val storage = File("epub").apply(File::mkdir)
-  val progress = wrap(dirs, "Scan")
+  val progress = ProgressBar.wrap(dirs, "Scan")
   progress.forEach(storage::collectEpubRecursively)
 }
 
