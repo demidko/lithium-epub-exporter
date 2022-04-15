@@ -9,7 +9,8 @@ fun main() {
 
 fun hasEpub(file: AndroidFile): Boolean {
   val name = file.name.lowercase()
-  if (setOf("epub", "book", "lithium").any(name::contains)) {
+  val keywords = setOf("epub", "book", "lithium", "fault", "read")
+  if (keywords.any(name::contains)) {
     return true
   }
   val next = file.listNestedFiles()
