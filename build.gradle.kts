@@ -26,6 +26,7 @@ graal {
   javaVersion("17")
   graalVersion("22.0.0.2")
   option("--no-fallback")
+  option("--allow-incomplete-classpath option")
   mainClass("AppKt")
   outputName(projectDir.name)
   windowsVsVarsPath("C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat")
