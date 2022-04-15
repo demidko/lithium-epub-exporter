@@ -1,4 +1,4 @@
-# epub-exporter
+# lithium-epub-exporter
 
 ## Download
 
@@ -11,5 +11,5 @@
 Connect your Android to your PC via ADB.
 
 ```shell
-./epub-exporter
+./lithium-epub-exporter
 ```
