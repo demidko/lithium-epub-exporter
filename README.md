@@ -15,5 +15,5 @@ GitHub CI automatically generates versions of the application for different oper
 Enable ADB and connect your Android to your computer.
 
 ```shell
-./lithium-exporter
+./lithium-epub-exporter
 ```
