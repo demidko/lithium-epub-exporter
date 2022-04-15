@@ -1,22 +1,22 @@
-import AndroidFile.Companion.loadAndroidPath
-import me.tongfei.progressbar.ProgressBar
+import AndroidFile.Companion.loadAndroidSdcard
+import me.tongfei.progressbar.ProgressBar.wrap
+import java.io.File
 
 
 fun main() {
-  val apps = loadAndroidPath("/sdcard/Android/data").listNestedFiles()
-  ProgressBar.wrap(apps, "Scanning").filter(::hasEpub).let(::println)
+  val dirs = loadAndroidSdcard().listNestedFiles()
+  val storage = File("epub").apply(File::mkdir)
+  val progress = wrap(dirs, "Scan")
+  progress.forEach(storage::collectEpubRecursively)
 }
 
-fun hasEpub(file: AndroidFile): Boolean {
-  val name = file.name.lowercase()
-  val keywords = setOf("epub", "book", "lithium", "fault", "read")
-  if (keywords.any(name::contains)) {
-    return true
+fun File.collectEpubRecursively(file: AndroidFile) {
+  val isEpub = file.name.lowercase().endsWith(".epub")
+  if (isEpub) {
+    file.copyToDirectory(this)
+  } else {
+    file.listNestedFiles().forEach(::collectEpubRecursively)
   }
-  val next = file.listNestedFiles()
-  if (next.isEmpty()) {
-    return false
-  }
-  return next.any(::hasEpub)
 }
+
 
