@@ -1,4 +1,4 @@
-# lithium-epub-exporter
+# Lithium Epub Exporter
 
 ## Download
 
